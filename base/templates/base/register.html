@@ -1,0 +1,36 @@
+{% extends 'base/main.html' %}
+{% block content %}
+
+
+<div class="header-bar">
+    <h1 style="padding-left: 130px; padding-right: 130px;">Register</h1>
+</div>
+
+<div class="card-body">
+    <form method="POST">
+        {% csrf_token %}
+        
+        <div class="form-group">
+            <label for="id_username"></label>
+            <input type="text" name="{{ form.username.name }}" placeholder="Username">
+        </div>
+        
+        <div class="form-group">
+            <label for="id_password1"></label>
+            <input type="password" name="{{ form.password1.name }}" placeholder="Password">
+        </div>
+
+        <div class="form-group">
+                <label for="id_password2"></label>
+                <input type="password" name="{{ form.password2.name }}" placeholder="Confirm password">
+            </div>
+            
+        </div>
+
+        <input class="button" type="submit" value="Register" style="color: #e8e8e8;">
+    </form>
+
+    <p style="color: #92a1b4; margin-top: 125px;">Already have an account? <a href="{% url 'login' %}">Login</a></p>
+</div>
+{% endblock content %}
+
